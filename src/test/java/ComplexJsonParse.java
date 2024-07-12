@@ -1,10 +1,8 @@
 import Data.RequestPayload;
 import io.restassured.path.json.JsonPath;
 
-public class ComplexJsonParse
-{
-    public static void main(String[] args)
-    {
+public class ComplexJsonParse {
+    public static void main(String[] args) {
         JsonPath jsonPath = new JsonPath(RequestPayload.coursePrice());
 
         //print no.of courses returned by API
@@ -23,31 +21,25 @@ public class ComplexJsonParse
 
         //print all course titles & their respective prices :
 
-        for(int i = 0 ; i<courseCount; i++)
-        {
-            String allCoursesTitle = jsonPath.get("courses["+i+"].title");
+        for (int i = 0; i < courseCount; i++) {
+            String allCoursesTitle = jsonPath.get("courses[" + i + "].title");
             System.out.println(allCoursesTitle);
 
-            int allCoursesPrice = jsonPath.getInt("courses["+i+"].price");
+            int allCoursesPrice = jsonPath.getInt("courses[" + i + "].price");
             System.out.println(allCoursesPrice);
 
             //suppose if the price is String then,
 
-            String allCoursesPriceInString = jsonPath.get("courses["+i+"].price").toString();
-            System.out.println("In String format :" + " "+allCoursesPriceInString);
-            if (allCoursesTitle.equalsIgnoreCase("RPA"))
-            {
-                int soldRPACourseCopyCount = jsonPath.get("courses["+i+"].copies");
-                System.out.println("The RPA Sold Count is : "+" "+soldRPACourseCopyCount);
+            String allCoursesPriceInString = jsonPath.get("courses[" + i + "].price").toString();
+            System.out.println("In String format :" + " " + allCoursesPriceInString);
+            if (allCoursesTitle.equalsIgnoreCase("RPA")) {
+                int soldRPACourseCopyCount = jsonPath.get("courses[" + i + "].copies");
+                System.out.println("The RPA Sold Count is : " + " " + soldRPACourseCopyCount);
+                break;
             }
 
 
         }
-
-
-
-
-
 
 
     }
