@@ -35,7 +35,16 @@ public class ComplexJsonParse
 
             String allCoursesPriceInString = jsonPath.get("courses["+i+"].price").toString();
             System.out.println("In String format :" + " "+allCoursesPriceInString);
+            if (allCoursesTitle.equalsIgnoreCase("RPA"))
+            {
+                int soldRPACourseCopyCount = jsonPath.get("courses["+i+"].copies");
+                System.out.println("The RPA Sold Count is : "+" "+soldRPACourseCopyCount);
+            }
+
+
         }
+
+
 
 
 
