@@ -23,12 +23,32 @@ public class RequestPayload
                 "}";
     }
 
-    public static String updatePlaceApiPayload()
+    public static String coursePrice()
     {
         return "{\n" +
-                "\"place_id\":\"ea29d64a492a4fb9c6091149bb099f72\",\n" +
-                "\"address\":\"70 winter walk, USA\",\n" +
-                "\"key\":\"qaclick123\"\n" +
+                "  \"dashboard\": {\n" +
+                "    \"purchaseAmount\": 910,\n" +
+                "    \"website\": \"rahulshettyacademy.com\"\n" +
+                "  },\n" +
+                "  \"courses\": [\n" +
+                "    {\n" +
+                "      \"title\": \"Selenium Python\",\n" +
+                "      \"price\": 50,\n" +
+                "      \"copies\": 6\n" +
+                "    },\n" +
+                "    {\n" +
+                "      \"title\": \"Cypress\",\n" +
+                "      \"price\": 40,\n" +
+                "      \"copies\": 4\n" +
+                "    },\n" +
+                "    {\n" +
+                "      \"title\": \"RPA\",\n" +
+                "      \"price\": 45,\n" +
+                "      \"copies\": 10\n" +
+                "    }\n" +
+                "  ]\n" +
                 "}";
     }
+
+
 }

@@ -1,6 +1,7 @@
 import Data.RequestPayload;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
+import org.testng.Assert;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.equalTo;
@@ -44,16 +45,17 @@ public class Basics
                 .queryParam("place-id",extractedPlaceId)
                 .when().get("maps/api/place/get/json")
                 .then().assertThat().log().all().statusCode(200).extract().response().asString();
-        System.out.println("The response after changing to post method is"+" "+getPlaceResponse);
+        //System.out.println("The response after changing to post method is"+" "+getPlaceResponse);
 
 
 
 
-//        System.out.println("The Get Place API Response is :" +" "+getPlaceResponse);
-//
-//       JsonPath jsPath = new JsonPath(getPlaceResponse);
-//       String actualAddress = jsPath.get("address");
-//        System.out.println("Actual Address is" + actualAddress);
+        System.out.println("The Get Place API Response is :" +" "+getPlaceResponse);
+
+       JsonPath jsPath = ReusableMethod.rawToJson(getPlaceResponse);
+       String actualAddress = jsPath.getString("address");
+        System.out.println("Actual Address is" + actualAddress);
+        Assert.assertEquals(actualAddress,newAddress);
 
 
     }
